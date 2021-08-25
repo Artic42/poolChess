@@ -10,7 +10,7 @@ Tested on:    Windows Subsystem for Linux
 #include "Artic42.h"
 
 /************************************************
-*   Constants                                   *
+*   Public constants                            *
 ************************************************/
 
 //Piece types
@@ -26,7 +26,7 @@ Tested on:    Windows Subsystem for Linux
 #define BLACK 0X02;
 
 /************************************************
-*   Strucutres                                  *
+*   Public strucutres                           *
 ************************************************/
 
 struct s_coordinate {
@@ -44,7 +44,7 @@ struct s_piece {
     int8b color;
     struct s_coordinate Position;
     bool Moved;
-    int8b ID;
+    bool inBoard;
 };
 
 struct s_move {
@@ -61,3 +61,11 @@ struct s_moveHistory {
     struct s_move *firstMove;
     struct s_move *lastMove;
 };
+
+/************************************************
+*	Global variables                            *
+************************************************/
+
+extern struct s_piece g_s_pieces [32];
+extern struct s_color g_s_white, g_s_black;
+extern struct s_moveHistory g_s_moves;
