@@ -11,7 +11,9 @@ Tested on:    Windows Subsystem for Linux
 *   Include                                     *
 ************************************************/
 
-#include "Artic42.h"
+#include <unistd.h>
+
+#include "lib/Artic42.h"
 #include "poolChess.h"
 #include "initializeData.h"
 
@@ -54,4 +56,6 @@ struct s_moveHistory g_s_moves;
 int main (void)
 {
     dataInitializeNewGame ();
+    
+    return 0;
 }

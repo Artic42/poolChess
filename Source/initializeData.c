@@ -11,7 +11,9 @@ Tested on:   Windows Subsystem for Linux
 *   Include                                     *
 ************************************************/
 
-#include "Artic42.h"
+#include <stddef.h>
+
+#include "lib/Artic42.h"
 #include "initializeData.h"
 #include "poolChess.h"
 
@@ -46,7 +48,7 @@ void dataInitializeNewGame (void)
     initHistoryNewGame ();
 }
 
-void initWhitesNewGames (void)
+void initWhitesNewGame (void)
 {
     for (int i=0; i<=7; i++)
     {
@@ -63,7 +65,7 @@ void initWhitesNewGames (void)
     createPiece (15, ROOK,   WHITE, 1, 'H');
 }
 
-void initBlacksNewGames (void)
+void initBlacksNewGame (void)
 {
     for (int i=16; i<=23; i++)
     {
@@ -86,7 +88,7 @@ void initColorsNewGame (void)
     g_s_black.isHuman = BTRUE;
 }
 
-void initHistoryNewGame (void);
+void initHistoryNewGame (void)
 {
     g_s_moves.moveAmount = 0;
     g_s_moves.firstMove = NULL;
@@ -100,5 +102,5 @@ void createPiece (int ID, int8b type, int8b color, int8b row, char column)
     g_s_pieces [ID].Position.row = row;
     g_s_pieces [ID].Position.column = column;
     g_s_pieces [ID].Moved = BFALSE;
-    g_s_pieces [ID].inBoard = BTRUE:
+    g_s_pieces [ID].inBoard = BTRUE;
 }

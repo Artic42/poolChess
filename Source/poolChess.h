@@ -7,23 +7,23 @@ Description: General header file for pool chess
 Tested on:    Windows Subsystem for Linux
 */
 
-#include "Artic42.h"
+#include "lib/Artic42.h"
 
 /************************************************
 *   Public constants                            *
 ************************************************/
 
 //Piece types
-#define KING 0x01;
-#define QUEEN 0x02;
-#define ROOK 0x03;
-#define BISHOP 0x04;
-#define KNIGHT 0x05;
-#define PAWN 0x06;
+#define KING 0x01
+#define QUEEN 0x02
+#define ROOK 0x03
+#define BISHOP 0x04
+#define KNIGHT 0x05
+#define PAWN 0x06
 
 //Piece colors
-#define WHITE 0X01;
-#define BLACK 0X02;
+#define WHITE 0X01
+#define BLACK 0X02
 
 /************************************************
 *   Public strucutres                           *
