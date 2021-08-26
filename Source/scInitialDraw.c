@@ -13,13 +13,16 @@ Tested on:   Windows Subsystem for Linux
 
 #include <ncurses.h>
 
-#include <scColors.h>
+#include "scColors.h"
+#include "poolChess.h"
 
 /************************************************
 *	Private Function Prtotype                   *
 ************************************************/
 
 void defineColors (void);
+void initializeNcurses (void);
+WINDOW *createWindowCentered (int width, int height);
 
 /***********************************************
 *	Private Structures                         *
@@ -42,21 +45,11 @@ void defineColors (void);
 
 void scInitialDraw (void)
 {
-    initscr ();
-    start_color ();
-
-    defineColors ();
-
-    attr_set (0, MAIN, NULL);
-    addstr ("This is the main text\n");
-    attr_set (A_BOLD, WH_P_WH_S, NULL);
-    addstr ("This is a white piece");
-    attr_set (A_BOLD, WH_P_BK_S, NULL);
-    addstr ("This is a white piece\n");
-    attr_set (A_BOLD, BK_P_BK_S, NULL);
-    addstr ("This is a black piece");
-    attr_set (A_BOLD, BK_P_WH_S, NULL);
-    addstr ("This is a black piece");
+    initializeNcurses ();
+    mainWindow = createWindowCentered (SCREEN_WIDTH, SCREEN_HEIGHT);
+    //wborder (mainWindow, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE, ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
+    wbkgdset (mainWindow, WH_P_WH_S);
+    waddstr (mainWindow, "Hello World");
 
     refresh();
 }
@@ -75,4 +68,21 @@ void defineColors (void)
     init_pair (WH_P_BK_S, WH_P, BK_S);
     init_pair (BK_P_WH_S, BK_P, WH_S);
     init_pair (BK_P_BK_S, BK_P, BK_S);
+}
+
+void initializeNcurses (void)
+{
+    initscr ();
+    if (has_colors()) { start_color (); }
+    defineColors ();
+}
+
+WINDOW *createWindowCentered (int width, int height)
+{
+    WINDOW *result;
+    long row, col;
+    getmaxyx (stdscr, row, col);
+
+    result = newwin (height, width, (row-height)/2, (col-width)/2);
+    return result;
 }

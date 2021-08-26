@@ -50,6 +50,7 @@ Tested on:    Windows Subsystem for Linux
 struct s_piece g_s_pieces [32];
 struct s_color g_s_white, g_s_black;
 struct s_moveHistory g_s_moves;
+WINDOW *mainWindow;
 
 /***********************************************
 *	Code                                       *

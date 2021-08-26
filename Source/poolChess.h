@@ -11,6 +11,7 @@ Tested on:    Windows Subsystem for Linux
 #define POOL_CHESS_H
 
 #include "lib/Artic42.h"
+#include "ncurses.h"
 
 /************************************************
 *   Public constants                            *
@@ -72,5 +73,5 @@ struct s_moveHistory {
 extern struct s_piece g_s_pieces [32];
 extern struct s_color g_s_white, g_s_black;
 extern struct s_moveHistory g_s_moves;
-
+extern WINDOW *mainWindow;
 #endif
