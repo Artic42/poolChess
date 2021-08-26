@@ -14,7 +14,7 @@ Tested on:   Windows Subsystem for Linux
 #include <stddef.h>
 
 #include "lib/Artic42.h"
-#include "initializeData.h"
+#include "dtInitialize.h"
 #include "poolChess.h"
 
 /************************************************

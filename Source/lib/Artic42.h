@@ -14,7 +14,7 @@ Description: Header were I include a series og common macros and definitions tha
 **************************************/
 
 // Variable types
-typedef char bool;
+typedef char boolean;
 typedef const char* string;
 typedef char int8b;
 

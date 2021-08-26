@@ -7,6 +7,9 @@ Description: Header file for initilize data
 Tested on:   Windows Subsystem for Linux
 */
 
+#ifndef DT_INITIALIZE_H
+#define DT_INITIALIZE_H
+
 /************************************************
 *	Public function prototype                    *
 ************************************************/
@@ -38,3 +41,4 @@ void dataInitializeSavedGame (void);
 
 
 
+#endif

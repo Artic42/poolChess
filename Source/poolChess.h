@@ -7,6 +7,9 @@ Description: General header file for pool chess
 Tested on:    Windows Subsystem for Linux
 */
 
+#ifndef POOL_CHESS_H
+#define POOL_CHESS_H
+
 #include "lib/Artic42.h"
 
 /************************************************
@@ -35,7 +38,7 @@ struct s_coordinate {
 };
 
 struct s_color {
-    bool isHuman;
+    boolean isHuman;
     long timeLeft;
 };
 
@@ -43,8 +46,8 @@ struct s_piece {
     int8b type;
     int8b color;
     struct s_coordinate Position;
-    bool Moved;
-    bool inBoard;
+    boolean Moved;
+    boolean inBoard;
 };
 
 struct s_move {
@@ -69,3 +72,5 @@ struct s_moveHistory {
 extern struct s_piece g_s_pieces [32];
 extern struct s_color g_s_white, g_s_black;
 extern struct s_moveHistory g_s_moves;
+
+#endif
