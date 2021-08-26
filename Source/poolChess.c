@@ -6,6 +6,7 @@ Author:      Artic42
 Description: General header file for pool chess
 Tested on:    Windows Subsystem for Linux
 */
+
 /************************************************
 *   Include                                     *
 ************************************************/
