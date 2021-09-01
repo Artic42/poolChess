@@ -1,14 +1,14 @@
 /*
-File Name:   scInitialDraw.h
+File Name:   scPieceDraw.h
 //
 Compiler:    gcc
 Author:      Artic42
-Description: Header file for screen
+Description: Header file for piece draw
 Tested on:   Windows Subsystem for Linux
 */
 
-#ifndef SC_INITIAL_DRAW_H
-#define SC_INITIAL_DRAW_H
+#ifndef SC_PIECE_DRAW_H
+#define SC_PIECE_DRAW_H
 
 #include "lib/Artic42.h"
 #include "poolChess.h"
@@ -17,7 +17,9 @@ Tested on:   Windows Subsystem for Linux
 *	Public function prototype                    *
 ************************************************/
 
-void scInitialDraw (void);
+void drawAllPieces (void);
+void removePiece (struct s_coordinate pos);
+void drawPiece (struct s_coordinate pos, int8b type, int8b color);
 
 /***********************************************
 *	Public structures                          *
@@ -35,43 +37,11 @@ void scInitialDraw (void);
 *	Public constants                           *
 ***********************************************/
 
-#define SCREEN_HEIGHT 29
-#define SCREEN_WIDTH 66
 
-#define SQUARE_HEIGHT 3
-#define SQUARE_WIDTH 4
-
-#define BOARD_MARGIN_X 4
-#define BOARD_MARGIN_Y 3
-
-#define COLUMN_POS_Y 2
-#define LINE_POS_X 2
-
-//ClockWindow
-#define CLOCK_POS_Y 2
-#define CLOCK_POS_X 37
-#define CLOCK_HEIGHT 8
-#define CLOCK_WIDTH 28
-
-#define CLOCK_MARGIN_X 3
-#define CLOCK_MARGIN_Y 1
-
-#define CLOCK_MARGIN_BLACK_X 11
-
-//AucWindow
-#define AUX_POS_Y 10
-#define AUX_POS_X 37
-#define AUX_HEIGHT 11
-#define AUX_WIDTH 28
-
-//OrderWindow
-#define ORDER_POS_Y 21
-#define ORDER_POS_X 37
-#define ORDER_HEIGHT 7
-#define ORDER_WIDTH 28
 
 /***********************************************
 *	Public variables                           *
 ***********************************************/
+
 
 #endif

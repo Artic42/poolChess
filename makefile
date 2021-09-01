@@ -13,34 +13,50 @@ Binaries = bin
 Sources = Source
 Headers = Source/Header
 
+OBJECTS = $(Binaries)/DataInit.o $(Binaries)/DataRead.o $(Binaries)/InitialDraw.o $(Binaries)/PieceDraw.o
+OBJECTS_D = $(Binaries)/DataInit_D.o $(Binaries)/DataRead_D.o $(Binaries)/InitialDraw_D.o $(Binaries)/PieceDraw_D.o
 #default make file, makes the full application
 
-$(Binaries)/PoolChess.app: $(Sources)/poolChess.c $(Sources)/poolChess.h $(Binaries)/Data.o $(Binaries)/Screen.o
-	@$(CC) $(CFLAGSR) $(IPATH) $(Sources)/poolChess.c $(Binaries)/Data.o $(Binaries)/Screen.o -o $(Binaries)/PoolChess.app
+$(Binaries)/PoolChess.app: $(Sources)/poolChess.c $(Sources)/poolChess.h $(OBJECTS)
+	@$(CC) $(CFLAGSR) $(IPATH) $(Sources)/poolChess.c $(OBJECTS) -o $(Binaries)/PoolChess.app
 
-$(Binaries)/PoolChessDebug.app: $(Sources)/poolChess.c $(Sources)/poolChess.h $(Binaries)/Data_D.o $(Binaries)/Screen_D.o
-	@$(CC) $(CFLAGSD) $(IPATH) $(Sources)/poolChess.c $(Binaries)/Data_D.o $(Binaries)/Screen_D.o -o $(Binaries)/PoolChessDebug.app
+$(Binaries)/PoolChessDebug.app: $(Sources)/poolChess.c $(Sources)/poolChess.h $(OBJECTS_D)
+	@$(CC) $(CFLAGSD) $(IPATH) $(Sources)/poolChess.c $(OBJECTS_D) -o $(Binaries)/PoolChessDebug.app
 
 #Subordinate objects of the application Heimdallr for Debug
 
-$(Binaries)/Data_D.o: $(Sources)/dtInitialize.c $(Sources)/dtInitialize.h
-	@$(CC) $(OFLAGSD) $(IPATH) $(Sources)/dtInitialize.c -o $(Binaries)/Data_D.o
+$(Binaries)/DataInit_D.o: $(Sources)/dtInitialize.c $(Sources)/dtInitialize.h
+	@$(CC) $(OFLAGSD) $(IPATH) $(Sources)/dtInitialize.c -o $(Binaries)/DataInit_D.o
 
-$(Binaries)/Screen_D.o: $(Sources)/scInitialDraw.c $(Sources)/scInitialDraw.h $(Sources)/scColors.h
-	@$(CC) $(OFLAGSD) $(IPATH) $(Sources)/scInitialDraw.c -o $(Binaries)/Screen_D.o
+$(Binaries)/DataRead_D.o: $(Sources)/dtRead.c $(Sources)/dtRead.h
+	@$(CC) $(OFLAGSD) $(IPATH) $(Sources)/dtRead.c -o $(Binaries)/DataRead_D.o
+
+$(Binaries)/InitialDraw_D.o: $(Sources)/scInitialDraw.c $(Sources)/scInitialDraw.h $(Sources)/scColors.h
+	@$(CC) $(OFLAGSD) $(IPATH) $(Sources)/scInitialDraw.c -o $(Binaries)/InitialDraw_D.o
+
+$(Binaries)/PieceDraw_D.o: $(Sources)/scPieceDraw.c $(Sources)/scPieceDraw.h $(Sources)/scColors.h
+	@$(CC) $(OFLAGSD) $(IPATH) $(Sources)/scPieceDraw.c -o $(Binaries)/PieceDraw_D.o
 
 #Subordinate objects of the application Heimdallr for realease 
 
-$(Binaries)/Data.o: $(Sources)/dtInitialize.c $(Sources)/dtInitialize.h
-	@$(CC) $(OFLAGSR) $(IPATH) $(Sources)/dtInitialize.c -o $(Binaries)/Data.o
+$(Binaries)/DataInit.o: $(Sources)/dtInitialize.c $(Sources)/dtInitialize.h
+	@$(CC) $(OFLAGSR) $(IPATH) $(Sources)/dtInitialize.c -o $(Binaries)/DataInit.o
 
-$(Binaries)/Screen.o: $(Sources)/scInitialDraw.c $(Sources)/scInitialDraw.h $(Sources)/scColors.h
-	@$(CC) $(OFLAGSR) $(IPATH) $(Sources)/scInitialDraw.c -o $(Binaries)/Screen.o
+$(Binaries)/DataRead.o: $(Sources)/dtRead.c $(Sources)/dtRead.h
+	@$(CC) $(OFLAGSD) $(IPATH) $(Sources)/dtRead.c -o $(Binaries)/DataRead.o
+
+$(Binaries)/InitialDraw.o: $(Sources)/scInitialDraw.c $(Sources)/scInitialDraw.h $(Sources)/scColors.h
+	@$(CC) $(OFLAGSR) $(IPATH) $(Sources)/scInitialDraw.c -o $(Binaries)/InitialDraw.o
+
+$(Binaries)/PieceDraw.o: $(Sources)/scPieceDraw.c $(Sources)/scPieceDraw.h $(Sources)/scColors.h $(Sources)/scInitialDraw.h $(Sources)/dtRead.h
+	@$(CC) $(OFLAGSR) $(IPATH) $(Sources)/scPieceDraw.c -o $(Binaries)/PieceDraw.o
 
 #Abreviated command
 
-Data: $(Binaries)/Data.o
-Screen: $(Binaries)/Screen_D.o
+DataInit: $(Binaries)/DataInit.o
+DataRead: $(Binaries)/DataRead.o
+InitialDraw: $(Binaries)/InitialDraw.o
+PieceDraw: $(Binaries)/PieceDraw.o
 
 
 #Run the program

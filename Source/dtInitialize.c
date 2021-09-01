@@ -79,7 +79,7 @@ void initBlacksNewGame (void)
     createPiece (28, KING,   BLACK, 8, 'E');
     createPiece (29, BISHOP, BLACK, 8, 'F');
     createPiece (30, KNIGHT, BLACK, 8, 'G');
-    createPiece (31, ROOK,   BLACK, 1, 'H');
+    createPiece (31, ROOK,   BLACK, 8, 'H');
 }
 
 void initColorsNewGame (void)

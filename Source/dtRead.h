@@ -17,9 +17,12 @@ Tested on:   Windows Subsystem for Linux
 *	Public function prototype                    *
 ************************************************/
 
+int8b getIDFromPos (struct s_coordinate pos);
+boolean isPosEmpty (struct s_coordinate pos);
+int8b getSquareColor (int8b col, int8b row);
+int8b getTypeFromID (int ID);
+struct s_coordinate getPosFromID (int ID);
 int8b getColorFromID (int ID);
-int8b getColorFromPos (struct s_coordinate);
-int8b getIDFromPos (struct s_coordinate);
 
 /***********************************************
 *	Public structures                          *

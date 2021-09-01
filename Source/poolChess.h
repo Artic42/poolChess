@@ -17,17 +17,21 @@ Tested on:    Windows Subsystem for Linux
 *   Public constants                            *
 ************************************************/
 
+#define EMPTY_SQUARE 32
+
 //Piece types
-#define KING 0x01
-#define QUEEN 0x02
-#define ROOK 0x03
-#define BISHOP 0x04
-#define KNIGHT 0x05
-#define PAWN 0x06
+#define KING 'K'
+#define QUEEN 'Q'
+#define ROOK 'R'
+#define BISHOP 'B'
+#define KNIGHT 'N'
+#define PAWN 'P'
 
 //Piece colors
 #define WHITE 0X01
 #define BLACK 0X02
+
+
 
 /************************************************
 *   Public strucutres                           *
@@ -73,5 +77,7 @@ struct s_moveHistory {
 extern struct s_piece g_s_pieces [32];
 extern struct s_color g_s_white, g_s_black;
 extern struct s_moveHistory g_s_moves;
-extern WINDOW *mainWindow;
+extern WINDOW *mainWindow, *clockWindow, *orderWindow, *auxWindow;
+
+
 #endif
