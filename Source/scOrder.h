@@ -1,29 +1,22 @@
 /*
-File Name:   dtRead.h
+File Name:   scOrder.h
 //
 Compiler:    gcc
 Author:      Artic42
-Description: Header file for data read
+Description: Header file for order manager
 Tested on:   Windows Subsystem for Linux
 */
 
-#ifndef DT_READ_H
-#define DT_READ_H
-
-#include "lib/Artic42.h"
-#include "poolChess.h"
+#ifndef SC_ORDER_H
+#define SC_ORDER_H
 
 /************************************************
 *	Public function prototype                    *
 ************************************************/
 
-int8b getIDFromPos (struct s_coordinate pos);
-boolean isPosEmpty (struct s_coordinate pos);
-int8b moveColor (void);
-int8b getSquareColor (int8b col, int8b row);
-int8b getTypeFromID (int ID);
-struct s_coordinate getPosFromID (int ID);
-int8b getColorFromID (int ID);
+void getOrder (void);
+void writeMessageOrderBox (string Message);
+void getStringOrderBox (char *Order, int OrderLength);
 
 /***********************************************
 *	Public structures                          *
@@ -46,6 +39,7 @@ int8b getColorFromID (int ID);
 /***********************************************
 *	Public variables                           *
 ***********************************************/
+
 
 
 #endif
