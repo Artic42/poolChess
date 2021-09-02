@@ -19,6 +19,7 @@ Tested on:    Windows Subsystem for Linux
 #include "dtInitialize.h"
 #include "scInitialDraw.h"
 #include "scPieceDraw.h"
+#include "scOrder.h"
 
 /************************************************
 *	Private Function Prtotype                   *
@@ -62,7 +63,7 @@ int main (void)
     dataInitializeNewGame ();
     scInitialDraw ();
     drawAllPieces ();
-    getch ();
+    getOrder ();
 
     endwin ();
     return 0;

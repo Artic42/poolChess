@@ -80,5 +80,11 @@ int8b getColorFromID (int ID)
 
 boolean coordinateEqual (struct s_coordinate coor1, struct s_coordinate coor2)
 {
-    return (coor1.row == coor2.row) && (coor1.column && coor2.column);
+    return (coor1.row == coor2.row) && (coor1.column == coor2.column);
+}
+
+int8b moveColor (void)
+{
+    if (g_s_moves.moveAmount % 2 == 0)  { return WHITE; }
+    else                                { return BLACK; }
 }

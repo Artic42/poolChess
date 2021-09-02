@@ -62,5 +62,7 @@ Tested on:   Windows Subsystem for Linux
 #define WH_P_BK_S 12
 #define BK_P_WH_S 13
 #define BK_P_BK_S 14
+#define ALARM_PAIR 15
+#define WARNING_PAIR 16
 
 #endif

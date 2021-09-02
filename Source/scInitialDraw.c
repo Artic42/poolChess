@@ -86,6 +86,8 @@ void defineColors (void)
     init_pair (WH_P_BK_S, WH_P, BK_S);
     init_pair (BK_P_WH_S, BK_P, WH_S);
     init_pair (BK_P_BK_S, BK_P, BK_S);
+    init_pair (ALARM_PAIR, BACKGROUND, FOREGROUND);
+    init_pair (WARNING_PAIR, BACKGROUND, COLOR_YELLOW);
 }
 
 void initializeNcurses (void)

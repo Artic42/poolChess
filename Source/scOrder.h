@@ -15,8 +15,8 @@ Tested on:   Windows Subsystem for Linux
 ************************************************/
 
 void getOrder (void);
-void writeMessageOrderBox (string Message);
-void getStringOrderBox (char *Order, int OrderLength);
+void writeMessageOrderBox (string message, int8b mode);
+void getStringOrderBox (char *order, int orderLength);
 
 /***********************************************
 *	Public structures                          *
@@ -34,7 +34,11 @@ void getStringOrderBox (char *Order, int OrderLength);
 *	Public constants                           *
 ***********************************************/
 
+#define ALARM 1
+#define MESSAGE 2
 
+#define MESSAGE_Y 2
+#define MESSAGE_X 2
 
 /***********************************************
 *	Public variables                           *
