@@ -1,26 +1,20 @@
 /*
-File Name:   scPieceDraw.h
+File Name:   dtMoves.h
 //
 Compiler:    gcc
 Author:      Artic42
-Description: Header file for piece draw
+Description: Header file for data moves
 Tested on:   Windows Subsystem for Linux
 */
 
-#ifndef SC_PIECE_DRAW_H
-#define SC_PIECE_DRAW_H
-
-#include "lib/Artic42.h"
-#include "poolChess.h"
+#ifndef DT_MOVES_H
+#define DT_MOVES_H
 
 /************************************************
 *	Public function prototype                    *
 ************************************************/
 
-void drawAllPieces (void);
-void removePiece (struct s_coordinate pos);
-void drawPiece (struct s_coordinate pos, int8b type, int8b color);
-void scMovePiece (struct s_coordinate start, struct s_coordinate destination, int8b type, int8b color);
+void movePiece (struct s_move *move);
 
 /***********************************************
 *	Public structures                          *
@@ -43,6 +37,7 @@ void scMovePiece (struct s_coordinate start, struct s_coordinate destination, in
 /***********************************************
 *	Public variables                           *
 ***********************************************/
+
 
 
 #endif

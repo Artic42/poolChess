@@ -72,6 +72,12 @@ void drawPiece (struct s_coordinate pos, int8b type, int8b color)
     wrefresh (mainWindow);
 }
 
+void scMovePiece (struct s_coordinate start, struct s_coordinate destination, int8b type, int8b color)
+{
+    removePiece (start);
+    drawPiece (destination, type, color);
+}
+
 void setSquareColor (struct s_coordinate pos, int8b color)
 {
     if ((color == WHITE) && (getSquareColor (pos.column, pos.row) == WHITE))

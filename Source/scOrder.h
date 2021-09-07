@@ -14,7 +14,7 @@ Tested on:   Windows Subsystem for Linux
 *	Public function prototype                    *
 ************************************************/
 
-void getOrder (void);
+void makeMove (void);
 void writeMessageOrderBox (string message, int8b mode);
 void getStringOrderBox (char *order, int orderLength);
 

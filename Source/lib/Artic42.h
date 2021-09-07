@@ -33,6 +33,7 @@ typedef char int8b;
 //Character functions
 char makeUpperCase (char character);
 char makeLowerCase (char character);
+int8b makeCharInt (char character);
 boolean characterBetweenLetters (char character, char upperLimit, char lowerLimit);
 boolean characterIsLetter (char character);
 boolean characterIsLowerCase (char character);

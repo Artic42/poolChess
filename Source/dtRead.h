@@ -24,6 +24,8 @@ int8b getSquareColor (int8b col, int8b row);
 int8b getTypeFromID (int ID);
 struct s_coordinate getPosFromID (int ID);
 int8b getColorFromID (int ID);
+void setPiece2Eaten (int ID);
+void setPiecePosition (int ID, struct s_coordinate destination);
 
 /***********************************************
 *	Public structures                          *

@@ -13,8 +13,8 @@ Binaries = bin
 Sources = Source
 Headers = Source/Header
 
-OBJECTS = $(Binaries)/DataInit.o $(Binaries)/DataRead.o $(Binaries)/InitialDraw.o $(Binaries)/PieceDraw.o $(Binaries)/Order.o $(Binaries)/Artic42.o
-OBJECTS_D = $(Binaries)/DataInit_D.o $(Binaries)/DataRead_D.o $(Binaries)/InitialDraw_D.o $(Binaries)/PieceDraw_D.o $(Binaries)/Order_D.o $(Binaries)/Artic42_D.o
+OBJECTS = $(Binaries)/DataInit.o $(Binaries)/DataRead.o $(Binaries)/InitialDraw.o $(Binaries)/PieceDraw.o $(Binaries)/Order.o $(Binaries)/Moves.o $(Binaries)/ValidMove.o $(Binaries)/Artic42.o
+OBJECTS_D = $(Binaries)/DataInit_D.o $(Binaries)/DataRead_D.o $(Binaries)/InitialDraw_D.o $(Binaries)/PieceDraw_D.o $(Binaries)/Order_D.o $(Binaries)/Moves_D.o $(Binaries)/ValidMove_D.o $(Binaries)/Artic42_D.o
 #default make file, makes the full application
 
 $(Binaries)/PoolChess.app: $(Sources)/poolChess.c $(Sources)/poolChess.h $(OBJECTS)
@@ -28,8 +28,14 @@ $(Binaries)/PoolChessDebug.app: $(Sources)/poolChess.c $(Sources)/poolChess.h $(
 $(Binaries)/DataInit_D.o: $(Sources)/dtInitialize.c $(Sources)/dtInitialize.h
 	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/dtInitialize.c -o $(Binaries)/DataInit_D.o
 
+$(Binaries)/Moves_D.o: $(Sources)/dtMoves.c $(Sources)/dtMoves.h
+	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/dtMoves.c -o $(Binaries)/Moves_D.o
+
 $(Binaries)/DataRead_D.o: $(Sources)/dtRead.c $(Sources)/dtRead.h
 	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/dtRead.c -o $(Binaries)/DataRead_D.o
+
+$(Binaries)/ValidMove_D.o: $(Sources)/dtValidMove.c $(Sources)/dtValidMove.h
+	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/dtValidMove.c -o $(Binaries)/ValidMove_D.o
 
 $(Binaries)/InitialDraw_D.o: $(Sources)/scInitialDraw.c $(Sources)/scInitialDraw.h $(Sources)/scColors.h
 	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/scInitialDraw.c -o $(Binaries)/InitialDraw_D.o
@@ -48,8 +54,14 @@ $(Binaries)/Artic42_D.o: $(Sources)/lib/Artic42.c
 $(Binaries)/DataInit.o: $(Sources)/dtInitialize.c $(Sources)/dtInitialize.h
 	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/dtInitialize.c -o $(Binaries)/DataInit.o
 
+$(Binaries)/Moves.o: $(Sources)/dtMoves.c $(Sources)/dtMoves.h
+	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/dtMoves.c -o $(Binaries)/Moves.o
+
 $(Binaries)/DataRead.o: $(Sources)/dtRead.c $(Sources)/dtRead.h
 	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/dtRead.c -o $(Binaries)/DataRead.o
+
+$(Binaries)/ValidMove.o: $(Sources)/dtValidMove.c $(Sources)/dtValidMove.h
+	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/dtValidMove.c -o $(Binaries)/ValidMove.o
 
 $(Binaries)/InitialDraw.o: $(Sources)/scInitialDraw.c $(Sources)/scInitialDraw.h $(Sources)/scColors.h
 	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/scInitialDraw.c -o $(Binaries)/InitialDraw.o
@@ -66,10 +78,12 @@ $(Binaries)/Artic42.o: $(Sources)/lib/Artic42.c
 #Abreviated command
 
 DataInit: $(Binaries)/DataInit.o
+Moves: $(Binaries)/Moves.o
 DataRead: $(Binaries)/DataRead.o
+ValidMove: $(Binaries)/ValidMove.o
 InitialDraw: $(Binaries)/InitialDraw.o
-PieceDraw: $(Binaries)/PieceDraw.o
 Order: $(Binaries)/Order.o
+PieceDraw: $(Binaries)/PieceDraw.o
 
 
 #Run the program

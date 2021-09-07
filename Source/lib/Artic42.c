@@ -53,6 +53,11 @@ char makeLowerCase (char character)
     else                                  { return -1;             }
 }
 
+int8b makeCharInt (char character)
+{
+    return character - 48;
+}
+
 boolean characterBetweenLetters (char character, char upperLimit, char lowerLimit)
 {
     return (character <= upperLimit) && (character >= lowerLimit);

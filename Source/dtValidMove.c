@@ -1,9 +1,9 @@
 /*
-File Name:   poolChess.h
+File Name:   dtValidMove.c
 //
 Compiler:    gcc
 Author:      Artic42
-Description: General header file for pool chess
+Description: Functions needed to know if a move is legal
 Tested on:    Windows Subsystem for Linux
 */
 
@@ -11,15 +11,9 @@ Tested on:    Windows Subsystem for Linux
 *   Include                                     *
 ************************************************/
 
-#include <unistd.h>
-#include <ncurses.h>
-
 #include "lib/Artic42.h"
 #include "poolChess.h"
-#include "dtInitialize.h"
-#include "scInitialDraw.h"
-#include "scPieceDraw.h"
-#include "scOrder.h"
+
 
 /************************************************
 *	Private Function Prtotype                   *
@@ -45,26 +39,11 @@ Tested on:    Windows Subsystem for Linux
 
 
 
-/************************************************
-*	Global variables                            *
-************************************************/
-
-struct s_piece g_s_pieces [32];
-struct s_color g_s_white, g_s_black;
-struct s_moveHistory g_s_moves;
-WINDOW *mainWindow, *clockWindow, *orderWindow, *auxWindow;
-
 /***********************************************
 *	Code                                       *
 ***********************************************/
 
-int main (void)
+boolean validMove (struct s_move *move)
 {
-    dataInitializeNewGame ();
-    scInitialDraw ();
-    drawAllPieces ();
-    while (BTRUE) {makeMove ();}
-
-    endwin ();
-    return 0;
+    return BTRUE;
 }

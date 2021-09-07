@@ -1,14 +1,14 @@
 /*
-File Name:   scPieceDraw.h
+File Name:   dtValidMove.h
 //
 Compiler:    gcc
 Author:      Artic42
-Description: Header file for piece draw
+Description: Header file for valid move
 Tested on:   Windows Subsystem for Linux
 */
 
-#ifndef SC_PIECE_DRAW_H
-#define SC_PIECE_DRAW_H
+#ifndef DT_VALID_MOVE_H
+#define DT_VALID_MOVE_H
 
 #include "lib/Artic42.h"
 #include "poolChess.h"
@@ -17,10 +17,7 @@ Tested on:   Windows Subsystem for Linux
 *	Public function prototype                    *
 ************************************************/
 
-void drawAllPieces (void);
-void removePiece (struct s_coordinate pos);
-void drawPiece (struct s_coordinate pos, int8b type, int8b color);
-void scMovePiece (struct s_coordinate start, struct s_coordinate destination, int8b type, int8b color);
+boolean validMove (struct s_move *move);
 
 /***********************************************
 *	Public structures                          *

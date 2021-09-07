@@ -65,4 +65,7 @@ Tested on:   Windows Subsystem for Linux
 #define ALARM_PAIR 15
 #define WARNING_PAIR 16
 
+#define SHOW_CURSOR 1
+#define HIDDEN_CURSOR 0
+
 #endif

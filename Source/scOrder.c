@@ -14,6 +14,7 @@ Tested on:    Windows Subsystem for Linux
 #include "lib/Artic42.h"
 
 #include "dtRead.h"
+#include "dtValidMove.h"
 #include "scOrder.h"
 #include "scColors.h"
 #include "poolChess.h"
@@ -41,10 +42,13 @@ Tested on:    Windows Subsystem for Linux
 ************************************************/
 
 void getStartPosition (struct s_move *move);
+boolean getDestinaitonPosition (struct s_move *move);
 boolean checkValidStart (struct s_coordinate start);
+boolean checkValidDestination (struct s_coordinate destinaiton);
 void convertStringToCoordinate (struct s_coordinate *start, char order [ORDER_ARRAY]);
 boolean isStringCoordinate (char order [ORDER_ARRAY]);
 void storeStart (struct s_move *move, struct s_coordinate *start);
+void storeDestination (struct s_move *move, struct s_coordinate *destination);
 
 /***********************************************
 *	Code                                       *
@@ -52,24 +56,41 @@ void storeStart (struct s_move *move, struct s_coordinate *start);
 
 void getStartPosition (struct s_move *move)
 {
-    boolean validOrder = BFALSE;
+    boolean validStart = BFALSE;
     struct s_coordinate start;
     char order [ORDER_ARRAY];
 
     writeMessageOrderBox ("Give start position", MESSAGE);
-    while (!validOrder)
+    while (!validStart)
     {
         getStringOrderBox (&order[0], ORDER_LENGTH);
         if (isStringCoordinate (&order[0]))
         {
             convertStringToCoordinate (&start, order);
-            validOrder = checkValidStart (start);
+            validStart = checkValidStart (start);
         }
-        if (!validOrder) { writeMessageOrderBox ("START NOT VALID! Give new", ALARM); }
+        if (!validStart) { writeMessageOrderBox ("START NOT VALID! Give new", ALARM); }
     }
     
     storeStart (move, &start);
     move->ID = getIDFromPos (start);
+}
+
+boolean getDestinaitonPosition (struct s_move *move)
+{
+    struct s_coordinate destination;
+    char order [ORDER_ARRAY];
+
+    writeMessageOrderBox ("Give destination position", MESSAGE);
+    getStringOrderBox (&order[0], ORDER_LENGTH);
+    if (isStringCoordinate (&order[0]))
+    {
+        convertStringToCoordinate (&destination, order);
+        if (!checkValidDestination(destination)) { return BFALSE; }
+    }
+    if (!validMove (move)) { return BFALSE; }
+    storeDestination (move, &destination);
+    return BTRUE;
 }
 
 boolean checkValidStart (struct s_coordinate start)
@@ -81,12 +102,15 @@ boolean checkValidStart (struct s_coordinate start)
     return BTRUE;
 }
 
+boolean checkValidDestination (struct s_coordinate destination)
+{
+    return !checkValidStart (destination);
+}
+
 void convertStringToCoordinate (struct s_coordinate *start, char order [ORDER_ARRAY])
 {
-    order [0] = makeUpperCase ( order [0]);
-
-    start->column = order [0];
-    start->row = order [1] - 48;
+    start->column = makeUpperCase ( order [0]);
+    start->row = makeCharInt (order [1]);
 }
 
 boolean isStringCoordinate (char order [ORDER_ARRAY])
@@ -99,10 +123,23 @@ void storeStart (struct s_move *move, struct s_coordinate *start)
     move->start = *start;
 }
 
-void getOrder (void)
+void storeDestination (struct s_move *move, struct s_coordinate *destination)
 {
+    move->destination = *destination;
+}
+
+void makeMove (void)
+{
+    boolean validOrder = BFALSE;
     struct s_move move;
-    getStartPosition (&move);
+
+    while (!validOrder)
+    {
+        getStartPosition (&move);
+        validOrder = getDestinaitonPosition(&move);
+    }
+    move.eatenID = getIDFromPos (move.destination);
+
 }
 
 void writeMessageOrderBox (string message, int8b mode)
@@ -124,8 +161,10 @@ void writeMessageOrderBox (string message, int8b mode)
 
 void getStringOrderBox (char *order, int orderLength)
 {
+    curs_set (SHOW_CURSOR);
     wattr_set (orderWindow, 0, MAIN, NULL);
     mvwgetnstr (orderWindow, MESSAGE_Y + 2, MESSAGE_X, order, orderLength);
     mvwprintw (orderWindow, MESSAGE_Y + 2, MESSAGE_X, "  ");
+    curs_set (HIDDEN_CURSOR);
     wrefresh (orderWindow);
 }

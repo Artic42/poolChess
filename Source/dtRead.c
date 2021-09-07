@@ -57,6 +57,12 @@ boolean isPosEmpty (struct s_coordinate pos)
     return EMPTY_SQUARE == getIDFromPos (pos);
 }
 
+int8b moveColor (void)
+{
+    if (g_s_moves.moveAmount % 2 == 0)  { return WHITE; }
+    else                                { return BLACK; }
+}
+
 int8b getSquareColor (int8b col, int8b row)
 {
     if (col%2 == row%2) { return BLACK; }
@@ -78,13 +84,18 @@ int8b getColorFromID (int ID)
     return g_s_pieces[ID].color;
 }
 
+void setPiece2Eaten (int ID)
+{
+    g_s_pieces[ID].inBoard = BFALSE;
+}
+
+void setPiecePosition (int ID, struct s_coordinate destination)
+{
+    g_s_pieces[ID].Position = destination;
+}
+
 boolean coordinateEqual (struct s_coordinate coor1, struct s_coordinate coor2)
 {
     return (coor1.row == coor2.row) && (coor1.column == coor2.column);
 }
 
-int8b moveColor (void)
-{
-    if (g_s_moves.moveAmount % 2 == 0)  { return WHITE; }
-    else                                { return BLACK; }
-}
