@@ -15,8 +15,10 @@ Tested on:    Windows Subsystem for Linux
 
 #include "dtRead.h"
 #include "dtValidMove.h"
+#include "dtMoves.h"
 #include "scOrder.h"
 #include "scColors.h"
+#include "scInitialDraw.h"
 #include "poolChess.h"
 
 /***********************************************
@@ -69,7 +71,7 @@ void getStartPosition (struct s_move *move)
             convertStringToCoordinate (&start, order);
             validStart = checkValidStart (start);
         }
-        if (!validStart) { writeMessageOrderBox ("START NOT VALID! Give new", ALARM); }
+        if (!validStart) { writeMessageOrderBox ("START NOT VALID!", ALARM); }
     }
     
     storeStart (move, &start);
@@ -88,6 +90,7 @@ boolean getDestinaitonPosition (struct s_move *move)
         convertStringToCoordinate (&destination, order);
         if (!checkValidDestination(destination)) { return BFALSE; }
     }
+    move->eatenID = getIDFromPos (move->destination);
     if (!validMove (move)) { return BFALSE; }
     storeDestination (move, &destination);
     return BTRUE;
@@ -138,16 +141,19 @@ void makeMove (void)
         getStartPosition (&move);
         validOrder = getDestinaitonPosition(&move);
     }
-    move.eatenID = getIDFromPos (move.destination);
-
+    movePiece (&move);
 }
 
 void writeMessageOrderBox (string message, int8b mode)
 {
+    deleteMessageOrderBox ();
     switch (mode)
     {
         case ALARM:
-            wattr_set (orderWindow, 0, ALARM, NULL);
+            wattr_set (orderWindow, 0, ALARM_PAIR, NULL);
+            break;
+        case WARNING:
+            wattr_set (orderWindow, 0, WARNING_PAIR, NULL);
             break;
         case MESSAGE:
             wattr_set (orderWindow, 0, MAIN, NULL);
@@ -156,6 +162,16 @@ void writeMessageOrderBox (string message, int8b mode)
             return;
     }
     mvwprintw (orderWindow, MESSAGE_Y, MESSAGE_X, message);
+    wrefresh (orderWindow);
+}
+
+void deleteMessageOrderBox (void)
+{
+    wattr_set (orderWindow, 0, MAIN, NULL);
+    for (int i=-1; i<ORDER_WIDTH-3; i++)
+    {
+        mvwprintw (orderWindow, MESSAGE_Y, MESSAGE_X+i, " ");
+    }
     wrefresh (orderWindow);
 }
 

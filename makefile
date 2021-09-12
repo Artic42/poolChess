@@ -13,8 +13,8 @@ Binaries = bin
 Sources = Source
 Headers = Source/Header
 
-OBJECTS = $(Binaries)/DataInit.o $(Binaries)/DataRead.o $(Binaries)/InitialDraw.o $(Binaries)/PieceDraw.o $(Binaries)/Order.o $(Binaries)/Moves.o $(Binaries)/ValidMove.o $(Binaries)/Artic42.o
-OBJECTS_D = $(Binaries)/DataInit_D.o $(Binaries)/DataRead_D.o $(Binaries)/InitialDraw_D.o $(Binaries)/PieceDraw_D.o $(Binaries)/Order_D.o $(Binaries)/Moves_D.o $(Binaries)/ValidMove_D.o $(Binaries)/Artic42_D.o
+OBJECTS = $(Binaries)/DataInit.o $(Binaries)/DataRead.o $(Binaries)/InitialDraw.o $(Binaries)/PieceDraw.o $(Binaries)/Order.o $(Binaries)/Moves.o $(Binaries)/ValidMove.o $(Binaries)/Clock.o $(Binaries)/Artic42.o
+OBJECTS_D = $(Binaries)/DataInit_D.o $(Binaries)/DataRead_D.o $(Binaries)/InitialDraw_D.o $(Binaries)/PieceDraw_D.o $(Binaries)/Order_D.o $(Binaries)/Moves_D.o $(Binaries)/ValidMove_D.o $(Binaries)/Clock_D.o $(Binaries)/Artic42_D.o
 #default make file, makes the full application
 
 $(Binaries)/PoolChess.app: $(Sources)/poolChess.c $(Sources)/poolChess.h $(OBJECTS)
@@ -46,6 +46,9 @@ $(Binaries)/PieceDraw_D.o: $(Sources)/scPieceDraw.c $(Sources)/scPieceDraw.h $(S
 $(Binaries)/Order_D.o: $(Sources)/scOrder.c $(Sources)/scOrder.h $(Sources)/scColors.h
 	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/scOrder.c -o $(Binaries)/Order_D.o
 
+$(Binaries)/Clock_D.o: $(Sources)/scClock.c $(Sources)/scClock.h $(Sources)/scColors.h
+	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/scClock.c -o $(Binaries)/Clock_D.o
+
 $(Binaries)/Artic42_D.o: $(Sources)/lib/Artic42.c
 	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/lib/Artic42.c -o $(Binaries)/Artic42_D.o
 
@@ -72,6 +75,9 @@ $(Binaries)/PieceDraw.o: $(Sources)/scPieceDraw.c $(Sources)/scPieceDraw.h $(Sou
 $(Binaries)/Order.o: $(Sources)/scOrder.c $(Sources)/scOrder.h $(Sources)/scColors.h $(Binaries)/DataRead.o
 	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/scOrder.c -o $(Binaries)/Order.o
 
+$(Binaries)/Clock.o: $(Sources)/scClock.c $(Sources)/scClock.h $(Sources)/scColors.h
+	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/scClock.c -o $(Binaries)/Clock.o
+
 $(Binaries)/Artic42.o: $(Sources)/lib/Artic42.c
 	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/lib/Artic42.c -o $(Binaries)/Artic42.o
 
@@ -84,6 +90,7 @@ ValidMove: $(Binaries)/ValidMove.o
 InitialDraw: $(Binaries)/InitialDraw.o
 Order: $(Binaries)/Order.o
 PieceDraw: $(Binaries)/PieceDraw.o
+Clock: $(Binaries)/Clock.o
 
 
 #Run the program

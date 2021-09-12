@@ -20,6 +20,7 @@ Tested on:    Windows Subsystem for Linux
 #include "scInitialDraw.h"
 #include "scPieceDraw.h"
 #include "scOrder.h"
+#include "scClock.h"
 
 /************************************************
 *	Private Function Prtotype                   *
@@ -63,7 +64,12 @@ int main (void)
     dataInitializeNewGame ();
     scInitialDraw ();
     drawAllPieces ();
-    while (BTRUE) {makeMove ();}
+    while (BTRUE)
+    {
+        makeMove ();
+        g_s_moves.moveAmount++;
+        drawTurn ();
+    }
 
     endwin ();
     return 0;

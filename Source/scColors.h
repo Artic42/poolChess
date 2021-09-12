@@ -58,12 +58,13 @@ Tested on:   Windows Subsystem for Linux
 ************************************************/
 
 #define MAIN 10
-#define WH_P_WH_S 11
-#define WH_P_BK_S 12
-#define BK_P_WH_S 13
-#define BK_P_BK_S 14
-#define ALARM_PAIR 15
-#define WARNING_PAIR 16
+#define INVERSE 11
+#define WH_P_WH_S 12
+#define WH_P_BK_S 13
+#define BK_P_WH_S 14
+#define BK_P_BK_S 15
+#define ALARM_PAIR 16
+#define WARNING_PAIR 17
 
 #define SHOW_CURSOR 1
 #define HIDDEN_CURSOR 0

@@ -17,6 +17,7 @@ Tested on:   Windows Subsystem for Linux
 #include "poolChess.h"
 #include "dtRead.h"
 #include "scInitialDraw.h"
+#include "scClock.h"
 
 /************************************************
 *	Private Function Prtotype                   *
@@ -28,7 +29,6 @@ void drawBoard (void);
 void drawSquare (int startY, int startX, int8b color);
 void drawColumns (void);
 void drawLines (void);
-void drawClocks (void);
 void drawOrder (void);
 WINDOW *createWindowCentered (int width, int height);
 WINDOW *createWindow (int width, int height, int posY, int posX);
@@ -82,11 +82,12 @@ void defineColors (void)
     init_color (FOREGROUND, 1000, 1000, 1000);
 
     init_pair (MAIN, FOREGROUND, BACKGROUND);
+    init_pair (INVERSE, BACKGROUND, FOREGROUND);
     init_pair (WH_P_WH_S, WH_P, WH_S);
     init_pair (WH_P_BK_S, WH_P, BK_S);
     init_pair (BK_P_WH_S, BK_P, WH_S);
     init_pair (BK_P_BK_S, BK_P, BK_S);
-    init_pair (ALARM_PAIR, BACKGROUND, FOREGROUND);
+    init_pair (ALARM_PAIR, FOREGROUND, COLOR_RED);
     init_pair (WARNING_PAIR, BACKGROUND, COLOR_YELLOW);
 }
 
@@ -138,17 +139,6 @@ void drawLines (void)
         mvwprintw (mainWindow, BOARD_MARGIN_Y + 1 + (SQUARE_HEIGHT * i), LINE_POS_X, "%i", 8-i);
     }
     wrefresh (mainWindow);
-}
-
-void drawClocks (void)
-{
-    wattr_set (clockWindow, 0, MAIN, NULL);
-    mvwprintw (clockWindow, CLOCK_MARGIN_Y, CLOCK_MARGIN_X, "GAME CLOCK");
-    mvwprintw (clockWindow, CLOCK_MARGIN_Y + 2, CLOCK_MARGIN_X, "WHITE");
-    mvwprintw (clockWindow, CLOCK_MARGIN_Y + 4, CLOCK_MARGIN_X, "0%i:0%i", g_s_white.timeLeft / 60, g_s_white.timeLeft % 60);
-    mvwprintw (clockWindow, CLOCK_MARGIN_Y + 2, CLOCK_MARGIN_BLACK_X, "BLACK");
-    mvwprintw (clockWindow, CLOCK_MARGIN_Y + 4, CLOCK_MARGIN_BLACK_X, "0%i:0%i", g_s_black.timeLeft / 60, g_s_black.timeLeft % 60);
-    wrefresh (clockWindow);
 }
 
 WINDOW *createWindowCentered (int width, int height)
