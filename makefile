@@ -29,13 +29,13 @@ $(Binaries)/DataInit_D.o: $(Sources)/dtInitialize.c $(Sources)/dtInitialize.h
 	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/dtInitialize.c -o $(Binaries)/DataInit_D.o
 
 $(Binaries)/Moves_D.o: $(Sources)/dtMoves.c $(Sources)/dtMoves.h
-	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/dtMoves.c -o $(Binaries)/Moves_D.o
+	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/dtMoves.c -o $(Binaries)/Moves_D.o
 
 $(Binaries)/DataRead_D.o: $(Sources)/dtRead.c $(Sources)/dtRead.h
 	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/dtRead.c -o $(Binaries)/DataRead_D.o
 
 $(Binaries)/ValidMove_D.o: $(Sources)/dtValidMove.c $(Sources)/dtValidMove.h
-	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/dtValidMove.c -o $(Binaries)/ValidMove_D.o
+	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/dtValidMove.c -o $(Binaries)/ValidMove_D.o
 
 $(Binaries)/InitialDraw_D.o: $(Sources)/scInitialDraw.c $(Sources)/scInitialDraw.h $(Sources)/scColors.h
 	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/scInitialDraw.c -o $(Binaries)/InitialDraw_D.o
@@ -70,7 +70,7 @@ $(Binaries)/PieceDraw.o: $(Sources)/scPieceDraw.c $(Sources)/scPieceDraw.h $(Sou
 	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/scPieceDraw.c -o $(Binaries)/PieceDraw.o
 
 $(Binaries)/Order.o: $(Sources)/scOrder.c $(Sources)/scOrder.h $(Sources)/scColors.h $(Binaries)/DataRead.o
-	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/scOrder.c $(Binaries)/DataRead.o -o $(Binaries)/Order.o
+	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/scOrder.c -o $(Binaries)/Order.o
 
 $(Binaries)/Artic42.o: $(Sources)/lib/Artic42.c
 	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/lib/Artic42.c -o $(Binaries)/Artic42.o
