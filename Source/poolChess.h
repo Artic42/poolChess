@@ -60,6 +60,9 @@ struct s_move {
     struct s_coordinate start;
     struct s_coordinate destination;
     int8b eatenID;
+    int8b direction;
+    int8b distance;
+    int8b movedPieceType;
     struct s_move *nxt;
     struct s_move *prv;
 };
