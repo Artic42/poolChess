@@ -1,0 +1,14 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/artic/poolChess'
+gcc -c -Wall -lncurses -ISource Source/dtInitialize.c -o bin/DataInit.o
+gcc -c -Wall -lncurses -ISource Source/dtRead.c -o bin/DataRead.o
+gcc -c -Wall -lncurses -ISource Source/scInitialDraw.c -o bin/InitialDraw.o
+gcc -c -Wall -lncurses -ISource Source/scPieceDraw.c -o bin/PieceDraw.o
+gcc -c -Wall -lncurses -ISource Source/scOrder.c -o bin/Order.o
+gcc -c -Wall -lncurses -ISource Source/dtMoves.c -o bin/Moves.o
+gcc -c -Wall -lncurses -ISource Source/dtValidMove.c -o bin/ValidMove.o
+gcc -c -Wall -lncurses -ISource Source/scClock.c -o bin/Clock.o
+gcc -c -g -Wall -lncurses -ISource Source/lib/Artic42.c -o bin/Artic42.o
+gcc -Wall -lncurses -ISource Source/poolChess.c bin/DataInit.o bin/DataRead.o bin/InitialDraw.o bin/PieceDraw.o bin/Order.o bin/Moves.o bin/ValidMove.o bin/Clock.o bin/Artic42.o -o bin/PoolChess.app
+make: Leaving directory '/home/artic/poolChess'
+ 

@@ -40,4 +40,9 @@ boolean characterIsLowerCase (char character);
 boolean characterIsUpperCase (char character);
 boolean characterIsNumber (char character);
 
+//Integer functions
+int intAbsolute (int value);
+int intGiveMax (int value1, int value2);
+int intGiveMin (int value1, int value2);
+
 #endif

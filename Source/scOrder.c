@@ -44,7 +44,7 @@ Tested on:    Windows Subsystem for Linux
 ************************************************/
 
 void getStartPosition (struct s_move *move);
-boolean getDestinaitonPosition (struct s_move *move);
+boolean getDestinationPosition (struct s_move *move);
 boolean checkValidStart (struct s_coordinate start);
 boolean checkValidDestination (struct s_coordinate destinaiton);
 void convertStringToCoordinate (struct s_coordinate *start, char order [ORDER_ARRAY]);
@@ -76,9 +76,10 @@ void getStartPosition (struct s_move *move)
     
     storeStart (move, &start);
     move->ID = getIDFromPos (start);
+    move->movedPieceType = getTypeFromID (move->ID);
 }
 
-boolean getDestinaitonPosition (struct s_move *move)
+boolean getDestinationPosition (struct s_move *move)
 {
     struct s_coordinate destination;
     char order [ORDER_ARRAY];
@@ -91,6 +92,8 @@ boolean getDestinaitonPosition (struct s_move *move)
         if (!checkValidDestination(destination)) { return BFALSE; }
     }
     move->eatenID = getIDFromPos (move->destination);
+    determineMoveDirection (&move);
+    determineMoveDistance (&move);
     if (!validMove (move)) { return BFALSE; }
     storeDestination (move, &destination);
     return BTRUE;
@@ -139,7 +142,7 @@ void makeMove (void)
     while (!validOrder)
     {
         getStartPosition (&move);
-        validOrder = getDestinaitonPosition(&move);
+        validOrder = getDestinationPosition(&move);
     }
     movePiece (&move);
 }

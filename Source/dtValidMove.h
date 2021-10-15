@@ -18,6 +18,8 @@ Tested on:   Windows Subsystem for Linux
 ************************************************/
 
 boolean validMove (struct s_move *move);
+void determineMoveDirection (struct s_move *move);
+void determineMoveDistance (struct s_move *move);
 
 /***********************************************
 *	Public structures                          *
