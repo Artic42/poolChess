@@ -47,5 +47,8 @@ int returnLower (int number1, int number2);
 boolean isNumberZero (int number);
 boolean isNumberPositive (int number);
 boolean isNumberNegative (int number);
+int intAbsolute (int value);
+int intGiveMax (int value1, int value2);
+int intGiveMin (int value1, int value2);
 
 #endif

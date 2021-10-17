@@ -61,7 +61,7 @@ struct s_move {
     struct s_coordinate destination;
     int8b eatenID;
     int8b direction;
-    int8b module;
+    int8b distance;
     int8b movedPieceType;
     int8b movedPieceColor;
     struct s_move *nxt;

@@ -1,0 +1,551 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+ 
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Sun Sep 19 09:31:47 2021
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+WSLENV = VSCODE_WSL_EXT_LOCATION/up:VSCODE_SERVER_TAR/up
+# default
+.SHELLFLAGS := -c
+# environment
+VSCODE_AGENT_FOLDER = /home/artic/.vscode-server
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /home/artic/poolChess
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+# environment
+_ = /home/artic/.vscode-server/bin/83bd43bc519d15e50c4272c6cf5c1479df196a4d/node
+# makefile (from 'makefile', line 7)
+OFLAGSD = -c $(CFLAGSD)
+# makefile (from 'makefile', line 1)
+MAKEFILE_LIST :=  makefile
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
+# makefile (from 'makefile', line 6)
+OFLAGSR = -c $(CFLAGSR)
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+VSCODE_CWD = /mnt/c/Users/main/AppData/Local/Programs/Microsoft VS Code
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/artic/.vscode-server/bin/83bd43bc519d15e50c4272c6cf5c1479df196a4d/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files (x86)/VMware/VMware Workstation/bin/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin/:/mnt/c/Program Files/IVI Foundation/VISA/Win64/Bin/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin:/mnt/c/Users/main/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/main/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin:/home/artic/.bin:/home/artic/.script
+# makefile (from 'makefile', line 8)
+IPATH = -ISource
+# environment
+VSCODE_LOG_STACK = false
+# environment
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-78eafeca-869d-410d-9d3c-0807524280d0.sock
+# environment
+VSCODE_SERVER_TAR = /mnt/c/Users/main/AppData/Local/Temp/vscode-remote-wsl/83bd43bc519d15e50c4272c6cf5c1479df196a4d/vscode-server-stable-linux-x64.tar.gz
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# makefile (from 'makefile', line 5)
+CFLAGSD = -g $(CFLAGSR)
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_PIPE_LOGGING = true
+# makefile (from 'makefile', line 17)
+OBJECTS_D = $(Binaries)/DataInit_D.o $(Binaries)/DataRead_D.o $(Binaries)/InitialDraw_D.o $(Binaries)/PieceDraw_D.o $(Binaries)/Order_D.o $(Binaries)/Moves_D.o $(Binaries)/ValidMove_D.o $(Binaries)/Clock_D.o $(Binaries)/Artic42_D.o
+# makefile (from 'makefile', line 4)
+CFLAGSR = -Wall -lncurses
+# environment
+PWD = /home/artic/poolChess
+# default
+.LOADED := 
+# environment
+WSL_INTEROP = /run/WSL/12_interop
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/server/remoteExtensionHostProcess
+# environment
+HOME = /home/artic
+# makefile (from 'makefile', line 14)
+Headers = Source/Header
+# environment
+LOGNAME = artic
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 0
+# makefile (from 'makefile', line 3)
+CC = gcc
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = artic
+# makefile
+.DEFAULT_GOAL := bin/PoolChess.app
+# environment
+NAME = apollo
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/main/.vscode/extensions/ms-vscode-remote.remote-wsl-0.58.2
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# environment
+PYTHONPATH = :/home/artic/.bin/python/lib
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# makefile (from 'makefile', line 12)
+Binaries = bin
+# default
+MAKEFILES := 
+# makefile (from 'makefile', line 13)
+Sources = Source
+# automatic
+<F = $(notdir $<)
+# environment
+GCC_COLORS = error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01
+# environment
+LC_ALL = C
+# environment
+HOSTTYPE = x86_64
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+VSCODE_INJECT_NODE_MODULE_LOOKUP_PATH = /home/artic/.vscode-server/bin/83bd43bc519d15e50c4272c6cf5c1479df196a4d/remote/node_modules
+# default
+.RECIPEPREFIX := 
+# makefile (from 'makefile', line 16)
+OBJECTS = $(Binaries)/DataInit.o $(Binaries)/DataRead.o $(Binaries)/InitialDraw.o $(Binaries)/PieceDraw.o $(Binaries)/Order.o $(Binaries)/Moves.o $(Binaries)/ValidMove.o $(Binaries)/Clock.o $(Binaries)/Artic42.o
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+VSCODE_EXTHOST_WILL_SEND_SOCKET = true
+# environment
+WSL_DISTRO_NAME = Ubuntu-20.04
+# variable set hash-table stats:
+# Load=80/1024=8%, Rehash=0, Collisions=4/204=2%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2064, inode 52367): 11 files, no impossibilities.
+
+# 11 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+bin/Moves_D.o: Source/dtMoves.c Source/dtMoves.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 32):
+	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/dtMoves.c -o $(Binaries)/Moves_D.o
+
+# Not a target:
+Source/dtMoves.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Source/scPieceDraw.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Source/poolChess.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+DataInit: bin/DataInit.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bin/DataInit_D.o: Source/dtInitialize.c Source/dtInitialize.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 29):
+	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/dtInitialize.c -o $(Binaries)/DataInit_D.o
+
+bin/Order_D.o: Source/scOrder.c Source/scOrder.h Source/scColors.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 47):
+	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/scOrder.c -o $(Binaries)/Order_D.o
+
+# Not a target:
+Source/dtMoves.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Source/scPieceDraw.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bin/InitialDraw_D.o: Source/scInitialDraw.c Source/scInitialDraw.h Source/scColors.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 41):
+	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/scInitialDraw.c -o $(Binaries)/InitialDraw_D.o
+
+# Not a target:
+Source/scOrder.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+InitialDraw: bin/InitialDraw.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Source/scClock.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Source/scInitialDraw.c:
+ 
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bin/Artic42_D.o: Source/lib/Artic42.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 53):
+	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/lib/Artic42.c -o $(Binaries)/Artic42_D.o
+
+Debug: bin/PoolChessDebug.app
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Source/dtInitialize.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+makefile:
+#  Implicit rule search has been done.
+#  Last modified 2021-09-18 17:37:13.29
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Source/dtValidMove.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bin/DataRead.o: Source/dtRead.c Source/dtRead.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 64):
+	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/dtRead.c -o $(Binaries)/DataRead.o
+
+# Not a target:
+Source/scOrder.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Source/dtRead.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Source/scClock.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Source/scInitialDraw.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Source/dtInitialize.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+PieceDraw: bin/PieceDraw.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Source/lib/Artic42.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bin/ValidMove.o: Source/dtValidMove.c Source/dtValidMove.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 67):
+	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/dtValidMove.c -o $(Binaries)/ValidMove.o
+
+# Not a target:
+Source/dtValidMove.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bin/PieceDraw.o: Source/scPieceDraw.c Source/scPieceDraw.h Source/scColors.h Source/scInitialDraw.h Source/dtRead.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 73):
+	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/scPieceDraw.c -o $(Binaries)/PieceDraw.o
+
+bin/Moves.o: Source/dtMoves.c Source/dtMoves.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 61):
+	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/dtMoves.c -o $(Binaries)/Moves.o
+
+Moves: bin/Moves.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ValidMove: bin/ValidMove.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Source/dtRead.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+DataRead: bin/DataRead.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+Run: bin/PoolChess.app
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 99):
+	$(Binaries)/PoolChess.app
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 104):
+	rm -f $(Binaries)/*.o
+	rm -f $(Binaries)/*.app
+
+bin/Order.o: Source/scOrder.c Source/scOrder.h Source/scColors.h bin/DataRead.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 76):
+	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/scOrder.c -o $(Binaries)/Order.o
+
+Order: bin/Order.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bin/InitialDraw.o: Source/scInitialDraw.c Source/scInitialDraw.h Source/scColors.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 70):
+	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/scInitialDraw.c -o $(Binaries)/InitialDraw.o
+
+bin/Artic42.o: Source/lib/Artic42.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 82):
+	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/lib/Artic42.c -o $(Binaries)/Artic42.o
+
+bin/Clock_D.o: Source/scClock.c Source/scClock.h Source/scColors.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 50):
+	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/scClock.c -o $(Binaries)/Clock_D.o
+
+bin/DataRead_D.o: Source/dtRead.c Source/dtRead.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 35):
+	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/dtRead.c -o $(Binaries)/DataRead_D.o
+
+bin/DataInit.o: Source/dtInitialize.c Source/dtInitialize.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 58):
+	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/dtInitialize.c -o $(Binaries)/DataInit.o
+
+# Not a target:
+Source/scColors.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Source/poolChess.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bin/Clock.o: Source/scClock.c Source/scClock.h Source/scColors.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 79):
+	$(CC) $(OFLAGSR) $(IPATH) $(Sources)/scClock.c -o $(Binaries)/Clock.o
+
+bin/ValidMove_D.o: Source/dtValidMove.c Source/dtValidMove.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 38):
+	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/dtValidMove.c -o $(Binaries)/ValidMove_D.o
+
+Clock: bin/Clock.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bin/PoolChess.app: Source/poolChess.c Source/poolChess.h bin/DataInit.o bin/DataRead.o bin/InitialDraw.o bin/PieceDraw.o bin/Order.o bin/Moves.o bin/ValidMove.o bin/Clock.o bin/Artic42.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 21):
+	$(CC) $(CFLAGSR) $(IPATH) $(Sources)/poolChess.c $(OBJECTS) -o $(Binaries)/PoolChess.app
+
+bin/PoolChessDebug.app: Source/poolChess.c Source/poolChess.h bin/DataInit_D.o bin/DataRead_D.o bin/InitialDraw_D.o bin/PieceDraw_D.o bin/Order_D.o bin/Moves_D.o bin/ValidMove_D.o bin/Clock_D.o bin/Artic42_D.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 24):
+	$(CC) $(CFLAGSD) $(IPATH) $(Sources)/poolChess.c $(OBJECTS_D) -o $(Binaries)/PoolChessDebug.app
+
+bin/PieceDraw_D.o: Source/scPieceDraw.c Source/scPieceDraw.h Source/scColors.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 44):
+	$(CC) $(OFLAGSD) $(IPATH) $(Sources)/scPieceDraw.c -o $(Binaries)/PieceDraw_D.o
+
+# files hash-table stats:
+# Load=55/1024=5%, Rehash=0, Collisions=7/160=4%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 67 / storage = 915 B / avg = 13 B
+# current buf: size = 8162 B / used = 915 B / count = 67 / avg = 13 B
+
+# strcache performance: lookups = 159 / hit rate = 57%
+# hash-table stats:
+# Load=67/8192=1%, Rehash=0, Collisions=4/159=3%
+# Finished Make data base on Sun Sep 19 09:31:47 2021
+
+ 

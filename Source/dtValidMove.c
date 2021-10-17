@@ -18,7 +18,7 @@ Tested on:    Windows Subsystem for Linux
 
 
 /************************************************
-*	Private Function Prtotype                   *
+*	Private Function Prototype                   *
 ************************************************/
 
 boolean isDirectionDiagonal (int8b direction);
@@ -163,7 +163,7 @@ boolean validMove (struct s_move *move)
                 return BFALSE;
             }
         case KING:
-            if (move->module == 1) { return BTRUE; }
+            if (move->distance == 1) { return BTRUE; }
             else                   { return BFALSE;}
     }
     return BTRUE;
@@ -173,8 +173,8 @@ boolean checkPawnValidMove (struct s_move *move)
 {
     if (move->eatenID == EMPTY_SQUARE && isDirectionStraight (move->direction))
     {
-        if (move->module == 1) { return BTRUE; }
-        if (move->module >= 3) { return BFALSE;}
+        if (move->distance == 1) { return BTRUE; }
+        if (move->distance >= 3) { return BFALSE;}
         if (move->movedPieceColor == WHITE && move->destination.row == 4) {return BTRUE; }
         if (move->movedPieceColor == BLACK && move->destination.row == 5) {return BTRUE; }
     }

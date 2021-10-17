@@ -28,8 +28,8 @@ int8b getColorFromID (int ID);
 void setPiece2Eaten (int ID);
 void setPiecePosition (int ID, struct s_coordinate destination);
 boolean coordinateEqual (struct s_coordinate coor1, struct s_coordinate coor2);
-int8b getMoveDirection (struct s_coordinate start, struct s_coordinate destination);
-int getMoveModule (struct s_coordinate start, struct s_coordinate destination);
+void determineMoveDirection (struct s_move *move);
+void determineMoveDistance (struct s_move *move);
 
 /***********************************************
 *	Public structures                          *

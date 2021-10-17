@@ -118,4 +118,22 @@ boolean isNumberPositive (int number)
 boolean isNumberNegative (int number)
 { 
     return number < 0;
+
+
+int intAbsolute (int value)
+{
+    if (value < 0)  { return value * (-1); }
+    else            { return value; }
+}
+
+int intGiveMax (int value1, int value2)
+{
+    if (value1 < value2) { return value2; }
+    else                 { return value1; }
+}
+
+int intGiveMin (int value1, int value2)
+{
+    if (value1 > value2) { return value2; }
+    else                 { return value1; }
 }

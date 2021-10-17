@@ -20,6 +20,7 @@ Tested on:   Windows Subsystem for Linux
 boolean validMove (struct s_move *move);
 
 
+
 /***********************************************
 *	Public structures                          *
 ***********************************************/

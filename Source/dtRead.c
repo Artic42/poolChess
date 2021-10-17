@@ -100,69 +100,32 @@ boolean coordinateEqual (struct s_coordinate coor1, struct s_coordinate coor2)
     return (coor1.row == coor2.row) && (coor1.column == coor2.column);
 }
 
-//GetMoveDirection
-
-int8b getMoveDirection (struct s_coordinate start, struct s_coordinate destination)
+void determineMoveDirection (struct s_move *move)
 {
-    int diffCol, diffRow, absDiffCol, absDiffRow;
+    int diffColumn = move->destination.column - move->start.column;
+    int diffRow = move->destination.row - move->start.row;
 
-    diffCol = destination.column - start.column;
-    diffRow = destination.row - start.row;
-    absDiffCol = calculateAbsolute (diffCol);
-    absDiffRow = calculateAbsolute (diffRow);
+    move->direction=NO_MOVE;
 
-    if (diffCol == 0 && diffRow == 0)
+    if (intAbsolute(diffColumn) == intAbsolute(diffRow))
     {
-        return NO_MOVE;
+        if (diffColumn > 0 && diffRow > 0) { move->direction=DIAGONAL_FRONT_RIGHT; }
+        if (diffColumn < 0 && diffRow > 0) { move->direction=DIAGONAL_FRONT_LEFT; }
+        if (diffColumn > 0 && diffRow < 0) { move->direction=DIAGONAL_REAR_RIGHT; }
+        if (diffColumn < 0 && diffRow < 0) { move->direction=DIAGONAL_REAR_LEFT; }
     }
 
-    if ((absDiffCol == 2 || absDiffRow == 2) && (absDiffCol == 1 || absDiffRow == 1)) 
-    {
-        return KNIGHT_MOVE;
-    }
+    if (diffColumn == 0 && diffRow > 0) { move->direction=STRAIGHT_FRONT; }
+    if (diffColumn == 0 && diffRow < 0) { move->direction=STRAIGHT_REAR; }
+    if (diffColumn > 0 && diffRow == 0) { move->direction=STRAIGHT_RIGHT; }
+    if (diffColumn < 0 && diffRow == 0) { move->direction=STRAIGHT_LEFT; }
 
-    if (absDiffCol == absDiffRow)
-    {
-        return getDiagonalDirection (diffCol, diffRow);
-    }
-
-    if (absDiffCol == 0 || absDiffRow == 0)
-    {
-        return getStraightDirection (diffCol, diffRow);
-    }
-    return NO_MOVE;
+    if (diffColumn == 1 || diffRow == 1 && diffColumn == 2 || diffRow == 2) { move->direction=KNIGHT; }
 }
 
-int8b getDiagonalDirection (int diffCol, int diffRow)
+void determineMoveDistance (struct s_move *move)
 {
-    if (isNumberPositive (diffCol) && isNumberPositive(diffRow)) { return DIAGONAL_FRONT_RIGHT; }
-    if (isNumberNegative (diffCol) && isNumberPositive(diffRow)) { return DIAGONAL_FRONT_LEFT; }
-    if (isNumberPositive (diffCol) && isNumberNegative(diffRow)) { return DIAGONAL_REAR_RIGHT; }
-    if (isNumberNegative (diffCol) && isNumberNegative(diffRow)) { return DIAGONAL_REAR_LEFT; }
-    return NO_MOVE;
-}
-
-int8b getStraightDirection (int diffCol, int diffRow)
-{
-    if (isNumberZero (diffCol))
-    {
-        if (isNumberPositive (diffRow)) { return STRAIGHT_FRONT; }
-        else                            { return STRAIGHT_REAR;  }
-    }
-
-    if (isNumberZero (diffRow))
-    {
-        if (isNumberPositive (diffCol)) { return STRAIGHT_RIGHT; }
-        else                            { return STRAIGHT_LEFT;  }
-    }
-    return NO_MOVE;
-}
-
-//GetMoveModule
-
-int getMoveModule (struct s_coordinate start, struct s_coordinate destination)
-{
-    int absDiffCol = calculateAbsolute (start.column - destination.column);
-    int absDiffRow = calculateAbsolute (start.row - destination.row);
-    return returnHigher (absDiffCol, absDiffRow);
+    int diffColumn = intAbsolute (move->destination.column - move->start.column);
+    int diffRow = intAbsolute (move->destination.row - move->start.row);
+    return intGiveMax (diffColumn, diffRow);
 }
