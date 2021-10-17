@@ -91,6 +91,8 @@ boolean getDestinaitonPosition (struct s_move *move)
         if (!checkValidDestination(destination)) { return BFALSE; }
     }
     move->eatenID = getIDFromPos (move->destination);
+    move->direction = getMoveDirection (move->start, move->destination);
+    move->module = getMoveModule (move->start, move->destination);
     if (!validMove (move)) { return BFALSE; }
     storeDestination (move, &destination);
     return BTRUE;

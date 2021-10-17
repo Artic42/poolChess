@@ -38,7 +38,7 @@ Tested on:   Windows Subsystem for Linux
 
 
 /***********************************************
-*	Code                                       *
+*	Character functions                        *
 ***********************************************/
 
 char makeUpperCase (char character)
@@ -81,4 +81,41 @@ boolean characterIsUpperCase (char character)
 boolean characterIsNumber (char character)
 {
     return characterBetweenLetters (character, '9', '0');
+}
+
+/***********************************************
+*	Integer functions                          *
+***********************************************/
+
+int calculateAbsolute (int number)
+{
+    if (isNumberNegative(number)) { return number * (-1); }
+    else                          { return number;  }
+}
+
+int returnHigher (int number1, int number2)
+{
+    if (number1 > number2)  { return number1; }
+    else                    { return number2; }
+}
+
+int returLower (int number1, int number2)
+{
+    if (number1 < number2)  { return number1; }
+    else                    { return number2; }
+}
+
+boolean isNumberZero (int number)
+{
+    return number == 0;
+}
+
+boolean isNumberPositive (int number)
+{
+    return number >= 0;
+}
+
+boolean isNumberNegative (int number)
+{ 
+    return number < 0;
 }

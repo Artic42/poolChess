@@ -40,4 +40,12 @@ boolean characterIsLowerCase (char character);
 boolean characterIsUpperCase (char character);
 boolean characterIsNumber (char character);
 
+//Integer functions
+int calculateAbsolute (int number);
+int returnHigher (int number1, int number2);
+int returnLower (int number1, int number2);
+boolean isNumberZero (int number);
+boolean isNumberPositive (int number);
+boolean isNumberNegative (int number);
+
 #endif
